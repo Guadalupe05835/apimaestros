@@ -1,0 +1,54 @@
+<div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+  <div class="bg-white overflow-hidden shadow-xl sm:rounded-lg mt-12">
+
+    <table class="table-fixed w-full">
+      <thead>
+        <tr class="bg-green-500 text-white">
+          <th class="w-20 py-4 ...">ID</th>
+          <th class="w-1/4 py-4 ...">Maestro</th>
+          <th class="w-1/2 py-4 ...">Detalles</th>
+          <th class="w-28 py-4 ...">Acciones</th>
+        </tr>
+      </thead>
+      <tbody>
+        {{#each tasks}}
+        <tr>
+          <td class="py-3 px-6 text-center">{{id}}</td>
+          <td class="p-3 text-center">{{title}}</td>
+          <td class="p-3 text-center">{{description}}</td>
+          <td class="p-3 flex">
+            <form action="/tasks/delete" method="POST" class="mx-2">
+              <input type="hidden" value="{{id}}" name="id">
+              <button class="bg-red-500 text-white px-3 py-1 rounded-sm" type="submit">
+                <i class="fas fa-trash"></i></button>
+            </form>
+            <a href="/tasks/edit/{{id}}" class="bg-green-500 text-white px-3 py-1 rounded-sm">
+              <i class="fas fa-pen"></i></a>
+          </td>
+        </tr>
+        {{/each}}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<!-- Facebook SDK  -->
+        <div id="fb-root"></div>
+        <script>(function(d, s, id) {
+        var js, fjs = d.getElementsByTagName(s)[0];
+        if (d.getElementById(id)) return;
+        js = d.createElement(s); js.id = id;
+        js.src = "https://connect.facebook.net/en_US/sdk.js#xfbml=1&version=v3.0";
+        fjs.parentNode.insertBefore(js, fjs);
+        }(document, 'script', 'facebook-jssdk'));</script>
+        
+        <!---Boton compartir -->
+        <div class="fb-share-button" 
+        data-href="https://maestrosapi.fly.dev/" 
+        data-layout="button"
+         data-size="large">
+         <a target="_blank"
+          href="https://www.facebook.com/sharer/sharer.php?u=https%3A%2F%2Fdevelopers.facebook.com%2Fdocs%2Fplugins%2F&amp;src=sdkpreparse" 
+          class="fb-xfbml-parse-ignore">Compartir</a></div>
+        
+        </div>
